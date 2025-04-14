@@ -17,16 +17,16 @@ struct EmojiRatingView: View {
                 .accessibilityLabel(Text("1 Star"))
         case 2:
             Text("🙁")
-                .accessibilityLabel(Text("2 Star"))
+                .accessibilityLabel(Text("2 Stars"))
         case 3:
             Text("🙂")
-                .accessibilityLabel(Text("3 Star"))
+                .accessibilityLabel(Text("3 Stars"))
         case 4:
             Text("😁")
-                .accessibilityLabel(Text("1 Star"))
+                .accessibilityLabel(Text("4 Stars"))
         default:
             Text("😍")
-                .accessibilityLabel(Text("1 Star"))
+                .accessibilityLabel(Text("5 Stars"))
         }
     }
 }
