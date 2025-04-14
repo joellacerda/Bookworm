@@ -27,13 +27,16 @@ struct ContentView: View {
                                 Text(book.title)
                                     .font(.headline)
                                 Text(book.author)
-                                    .font(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }
                 }
             }
             .navigationTitle("Bookworm")
+            .navigationDestination(for: Book.self) { book in
+                DetailView(book: book)
+            }
             .toolbar {
                 Button("Add Book", systemImage: "plus") {
                     showingAddScreen.toggle()
