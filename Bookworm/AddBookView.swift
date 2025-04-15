@@ -48,8 +48,8 @@ struct AddBookView: View {
                         modelContext.insert(newBook)
                         dismiss()
                     }
-                    
                 }
+                .disabled(title.isEmpty || author.isEmpty)
             }
             .navigationTitle("Add Book")
         }
