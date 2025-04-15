@@ -36,6 +36,9 @@ struct DetailView: View {
                 .font(.title)
                 .foregroundStyle(.secondary)
             
+            Text("Date added: \(formatDate(book.dateAdded))")
+                .font(.caption)
+            
             Text(book.review)
                 .padding()
             
@@ -62,13 +65,19 @@ struct DetailView: View {
         modelContext.delete(book)
         dismiss()
     }
+    
+    func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM y"
+        return dateFormatter.string(from: date)
+    }
 }
 
 #Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Book.self, configurations: config)
-        let example = Book(title: "Test Book", author: "Test Author", genre: "Fantasy", review: "This was a great book; I really enjoyed it.", rating: 4)
+        let example = Book(title: "Test Book", author: "Test Author", genre: "Fantasy", review: "This was a great book; I really enjoyed it.", rating: 4, dateAdded: Date.now)
         
         return DetailView(book: example)
             .modelContainer(container)
